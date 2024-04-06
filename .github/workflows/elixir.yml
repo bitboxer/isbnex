@@ -5,9 +5,9 @@ env:
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Setup elixir
-      uses: actions/setup-elixir@v1
+      uses: erlef/setup-beam@v1
       with:
-        elixir-version: 1.9.4 # Define the elixir version [required]
-        otp-version: 22.2 # Define the OTP version [required]
+        elixir-version: 1.16.1 # Define the elixir version [required]
+        otp-version: 25.2 # Define the OTP version [required]
 
     - name: Get build cache
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       with:
         path: _build/test/
         key: ${{ runner.os }}-build-${{ hashFiles('**/mix.lock') }}

@@ -27,11 +27,13 @@ defmodule ISBN do
     digits =
       isbn
       |> remove_spaces_and_dashes()
-      |> String.slice(0..-2)
+      |> String.slice(0..-2//1)
       |> String.codepoints()
       |> Enum.map(&String.to_integer/1)
 
     reveal_verifier(digits) == last_digit
+  rescue
+    _ -> false
   end
 
   def valid?(_), do: false
