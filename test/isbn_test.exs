@@ -23,6 +23,7 @@ defmodule ISBNTest do
     test "returns falsy when ISBN is invalid" do
       refute ISBN.valid?("99")
       refute ISBN.valid?(9)
+      refute ISBN.valid?("wrong")
 
       # ISBN10
       refute ISBN.valid?("9971502101")
