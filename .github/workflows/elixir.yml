@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Setup elixir
-      uses: actions/setup-elixir@v1
+      uses: erlef/setup-beam@v1
       with:
         elixir-version: 1.16.1 # Define the elixir version [required]
         otp-version: 25.2 # Define the OTP version [required]
